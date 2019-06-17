@@ -1,0 +1,26 @@
+{
+  "name": "easy-node-utils",
+  "version": "0.0.1",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha --require ts-node/register --exit  \"./tests/**/*.ts\"",
+    "build": "tsc"
+  },
+  "keywords": [
+    "typescript",
+    "node"
+  ],
+  "author": "chenkang084@163.com",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.7",
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
+    "nodemon": "^1.19.1",
+    "ts-lint": "^4.5.1",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.2"
+  }
+}
