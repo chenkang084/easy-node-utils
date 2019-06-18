@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "",
   "main": "lib/index.js",
+  "files": [
+    "lib/**/*"
+  ],
   "scripts": {
     "test": "mocha --require ts-node/register --exit  \"./tests/**/*.ts\"",
     "build": "tsc"
