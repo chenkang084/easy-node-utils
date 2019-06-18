@@ -1,6 +1,11 @@
-export function convertNumberWithCommas(x: number) {
-  if (x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+import { loggerUtil } from '../src';
+
+export function convertNumberWithCommas(val: number) {
+  if (val) {
+    return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
-  return x;
+  loggerUtil.warning(
+    `the [${val}] paramters of convertNumberWithCommas is null.`
+  );
+  return val;
 }
