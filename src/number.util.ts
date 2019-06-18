@@ -1,4 +1,4 @@
-import { loggerUtil } from '../src';
+import { loggerUtil } from './index';
 
 export function convertNumberWithCommas(val: number) {
   if (val) {
