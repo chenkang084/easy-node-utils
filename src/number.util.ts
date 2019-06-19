@@ -1,11 +1,9 @@
-import { loggerUtil } from './index';
+import { warning } from './logger.util';
 
 export function convertNumberWithCommas(val: number) {
   if (val) {
     return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
-  loggerUtil.warning(
-    `the [${val}] paramters of convertNumberWithCommas is null.`
-  );
+  warning(`the paramters:${val} of convertNumberWithCommas is null.`);
   return val;
 }
