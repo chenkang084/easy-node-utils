@@ -29,7 +29,8 @@ export const axiosDownload = (axios: any, url: string, filename: string) => {
   axios({
     method: 'GET',
     url,
-    responseType: 'blob'
+    responseType: 'blob',
+    withCredentials: true
   })
     .then((res: any) => {
       console.log(res);
