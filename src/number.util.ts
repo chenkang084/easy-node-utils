@@ -1,7 +1,7 @@
 import { warning } from './logger.util';
 
 export function convertNumberWithCommas(val: number) {
-  if (isNumber) {
+  if (isNumber(val)) {
     return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
   warning(
