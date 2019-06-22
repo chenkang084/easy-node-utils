@@ -1,4 +1,31 @@
+import { AxiosResponse } from 'axios';
 import { isIE } from './checkBrower.util';
+import { warning } from './logger.util';
+
+const handleDownload = (
+  contentDisposition: string,
+  data: Blob,
+  filename: string
+) => {
+  try {
+    if (contentDisposition) {
+      filename = contentDisposition
+        .split(';')
+        .filter((item: string) => !!item)[1]
+        .split('=')[1];
+    }
+  } catch (error) {
+    warning(error);
+  }
+
+  const downloadUrl = window.URL.createObjectURL(data);
+  const a = document.createElement('a');
+  a.href = downloadUrl;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+};
 
 export const fetchDownload = (fetch: any, url: string, filename: string) => {
   if (isIE()) {
@@ -10,20 +37,11 @@ export const fetchDownload = (fetch: any, url: string, filename: string) => {
 
     fetch(url, {
       method: 'GET'
-    })
-      .then((res: any) => {
-        console.log(res);
-        return res.blob();
-      })
-      .then((blob: Blob) => {
-        const downloadUrl = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = downloadUrl;
-        a.download = filename;
-        document.body.appendChild(a); // we need to append the element to the dom -> otherwise it will not work in firefox
-        a.click();
-        a.remove(); // afterwards we remove the element again
+    }).then((res: Response) => {
+      res.blob().then((data: Blob) => {
+        handleDownload(res.headers.get('content-disposition'), data, filename);
       });
+    });
   }
 };
 
@@ -40,19 +58,8 @@ export const axiosDownload = (axios: any, url: string, filename: string) => {
       url,
       responseType: 'blob',
       withCredentials: true
-    })
-      .then((res: any) => {
-        console.log(res);
-        return new Blob([res.data]);
-      })
-      .then((blob: Blob) => {
-        const downloadUrl = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = downloadUrl;
-        a.download = filename;
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-      });
+    }).then((res: AxiosResponse) => {
+      handleDownload(res.headers['content-disposition'], res.data, filename);
+    });
   }
 };

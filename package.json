@@ -15,6 +15,7 @@
   "author": "chenkang084@163.com",
   "license": "ISC",
   "devDependencies": {
+    "@types/axios": "^0.14.0",
     "@types/chai": "^4.1.7",
     "@types/mocha": "^5.2.7",
     "babel-cli": "^6.26.0",
