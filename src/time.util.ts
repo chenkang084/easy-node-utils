@@ -1,4 +1,6 @@
-export function convertMinutesToDayHourMinute(minutes: number) {
+import moment from 'moment';
+
+export const convertMinutesToDayHourMinute = (minutes: number) => {
   const days = Math.floor(minutes / (60 * 24));
   const hours = days
     ? Math.floor((minutes - days * 60 * 24) / 60)
@@ -8,4 +10,8 @@ export function convertMinutesToDayHourMinute(minutes: number) {
   return `${days ? `${days} days ` : ''}${hours ? `${hours} hours ` : ''}${
     minute ? `${minute} minutes` : ''
   }`;
-}
+};
+
+export const convertDateToYYYYMMDD = (date: string, dateType?: string) => {
+  return moment(date, dateType).format('YYYYMMDD');
+};
