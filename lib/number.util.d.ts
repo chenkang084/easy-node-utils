@@ -4,4 +4,4 @@ export declare function convertNumberWithCommas(val: number): string | number;
  * @param val
  * @returns true is a number
  */
-export declare function isNumber(val: number): boolean;
+export declare function isNumber(val: any): boolean;
