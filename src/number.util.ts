@@ -16,5 +16,5 @@ export function convertNumberWithCommas(val: number) {
  * @returns true is a number
  */
 export function isNumber(val: any) {
-  return !isNaN(val);
+  return null !== val && !isNaN(val);
 }
