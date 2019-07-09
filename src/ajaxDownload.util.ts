@@ -8,7 +8,8 @@ const handleDownload = (
   filename: string
 ) => {
   try {
-    if (contentDisposition) {
+    // filename undefined , use api data's filename
+    if (!filename && contentDisposition) {
       filename = contentDisposition
         .split(';')
         .filter((item: string) => !!item)[1]
@@ -27,7 +28,7 @@ const handleDownload = (
   a.remove();
 };
 
-export const fetchDownload = (fetch: any, url: string, filename: string) => {
+export const fetchDownload = (fetch: any, url: string, filename?: string) => {
   if (isIE()) {
     window.location.href = url;
   } else {
@@ -45,7 +46,7 @@ export const fetchDownload = (fetch: any, url: string, filename: string) => {
   }
 };
 
-export const axiosDownload = (axios: any, url: string, filename: string) => {
+export const axiosDownload = (axios: any, url: string, filename?: string) => {
   if (isIE()) {
     window.location.href = url;
   } else {
