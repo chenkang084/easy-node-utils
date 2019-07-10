@@ -39,9 +39,17 @@ export const fetchDownload = (fetch: any, url: string, filename?: string) => {
     fetch(url, {
       method: 'GET'
     }).then((res: Response) => {
-      res.blob().then((data: Blob) => {
-        handleDownload(res.headers.get('content-disposition'), data, filename);
-      });
+      if (res.ok) {
+        res.blob().then((data: Blob) => {
+          handleDownload(
+            res.headers.get('content-disposition'),
+            data,
+            filename
+          );
+        });
+      } else {
+        throw new Error(res.statusText);
+      }
     });
   }
 };
