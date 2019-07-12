@@ -15,3 +15,7 @@ export const convertMinutesToDayHourMinute = (minutes: number) => {
 export const convertDateToYYYYMMDD = (date: string, dateType?: string) => {
   return moment(date, dateType).format('YYYYMMDD');
 };
+
+export const getCurrentDayAsYYYYMMDD = () => {
+  return moment().format('YYYYMMDD');
+};
