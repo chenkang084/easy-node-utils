@@ -4,4 +4,5 @@ import * as loggerUtil from './logger.util';
 import * as ajaxDownload from './ajaxDownload.util';
 import * as browserUtil from './checkBrower.util';
 import * as typeCheckUtil from './typeCheck.util';
-export { timeUtil, numberUtil, loggerUtil, ajaxDownload, browserUtil, typeCheckUtil };
+import * as uuidUtil from './uuid.util';
+export { timeUtil, numberUtil, loggerUtil, ajaxDownload, browserUtil, typeCheckUtil, uuidUtil };
