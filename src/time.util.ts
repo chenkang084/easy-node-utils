@@ -12,7 +12,7 @@ export const convertMinutesToDayHourMinute = (minutes: number) => {
   }`;
 };
 
-export const convertDateByType = (date: string, dateType: string) => {
+export const convertDateByType = (date: Date | string, dateType: string) => {
   return moment(date).format(dateType);
 };
 
