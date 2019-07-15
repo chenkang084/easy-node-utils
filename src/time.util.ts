@@ -12,6 +12,10 @@ export const convertMinutesToDayHourMinute = (minutes: number) => {
   }`;
 };
 
+export const convertDateByType = (date: string, dateType: string) => {
+  return moment(date).format(dateType);
+};
+
 export const convertDateToYYYYMMDD = (date: string, dateType?: string) => {
   return moment(date, dateType).format('YYYYMMDD');
 };
