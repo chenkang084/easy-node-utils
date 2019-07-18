@@ -32,8 +32,8 @@ export const fetchDownload = (fetch: any, url: string, filename?: string) => {
   if (isIE()) {
     window.location.href = url;
   } else {
-    if (!url || !filename) {
-      throw new Error('url or filename can not be null!');
+    if (!url) {
+      throw new Error('url can not be null!');
     }
 
     fetch(url, {
@@ -58,8 +58,8 @@ export const axiosDownload = (axios: any, url: string, filename?: string) => {
   if (isIE()) {
     window.location.href = url;
   } else {
-    if (!url || !filename) {
-      throw new Error('url or filename can not be null!');
+    if (!url) {
+      throw new Error('url can not be null!');
     }
 
     axios({
