@@ -7,9 +7,27 @@ export const convertMinutesToDayHourMinute = (minutes: number) => {
     : Math.floor(minutes / 60);
   const minute = minutes - days * 60 * 24 - hours * 60;
 
-  return `${days ? `${days} days ` : ''}${hours ? `${hours} hours ` : ''}${
-    minute ? `${minute} minutes` : ''
-  }`;
+  let text = '';
+
+  if (days > 1) {
+    text += `${days} days `;
+  } else if (days === 1) {
+    text += `${days} day `;
+  }
+
+  if (hours > 1) {
+    text += `${hours} hours `;
+  } else if (hours === 1) {
+    text += `${hours} hour `;
+  }
+
+  if (minute > 1) {
+    text += `${minute} minutes`;
+  } else if (minute === 1) {
+    text += `${minute} minute`;
+  }
+
+  return text;
 };
 
 export const convertDateByType = (date: Date | string, dateType: string) => {

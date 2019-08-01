@@ -4,9 +4,9 @@ import { timeUtil } from "../lib";
 
 describe("test time util", () => {
   it("test convertTime method", () => {
-    const convertTime = timeUtil.convertMinutesToDayHourMinute(1000);
+    const convertTime = timeUtil.convertMinutesToDayHourMinute(1450);
 
-    expect(convertTime).to.equal("16 hours 40 minutes");
+    expect(convertTime).to.equal("1 day 10 minutes");
   });
 
   it("test convertDateToYYYYMMDD method", () => {
