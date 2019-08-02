@@ -5,7 +5,7 @@ export const convertMinutesToDayHourMinute = (minutes: number) => {
   const hours = days
     ? Math.floor((minutes - days * 60 * 24) / 60)
     : Math.floor(minutes / 60);
-  const minute = minutes - days * 60 * 24 - hours * 60;
+  const minute = Math.floor(minutes - days * 60 * 24 - hours * 60);
 
   let text = '';
 
@@ -29,6 +29,8 @@ export const convertMinutesToDayHourMinute = (minutes: number) => {
 
   return text;
 };
+
+convertMinutesToDayHourMinute(86399999 / 1000 / 60);
 
 export const convertDateByType = (date: Date | string, dateType: string) => {
   return moment(date).format(dateType);
