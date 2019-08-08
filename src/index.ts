@@ -5,6 +5,7 @@ import * as ajaxDownload from './ajaxDownload.util';
 import * as browserUtil from './checkBrower.util';
 import * as typeCheckUtil from './typeCheck.util';
 import * as uuidUtil from './uuid.util';
+import * as stringUtil from './string.util';
 
 export {
   timeUtil,
@@ -13,5 +14,6 @@ export {
   ajaxDownload,
   browserUtil,
   typeCheckUtil,
-  uuidUtil
+  uuidUtil,
+  stringUtil
 };
