@@ -1,10 +1,9 @@
 {
   "name": "easy-node-utils",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
-    "prepare": "npm run build",
     "test": "mocha --require babel-core/register \"./tests/**/*.js\" --exit",
     "build": "tsc"
   },
