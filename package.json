@@ -4,6 +4,7 @@
   "description": "",
   "main": "lib/index.js",
   "scripts": {
+    "prepare": "npm run build",
     "test": "mocha --require babel-core/register \"./tests/**/*.js\" --exit",
     "build": "tsc"
   },
