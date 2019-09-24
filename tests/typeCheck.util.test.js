@@ -8,8 +8,8 @@ describe("test typeCheck.util.ts", () => {
     expect(typeCheckUtil.isObject({})).to.equal(true);
   });
 
-  //   it("test isEmpty method", () => {
-  //     expect(typeCheckUtil.isEmpty(1000)).to.equal(false);
-  //     // expect(typeCheckUtil.isObject({})).to.equal(true);
-  //   });
+  it("test isEmpty method", () => {
+    expect(typeCheckUtil.isEmpty("")).to.equal(true);
+    expect(typeCheckUtil.isEmpty({})).to.equal(true);
+  });
 });
