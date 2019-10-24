@@ -6,6 +6,7 @@ import * as browserUtil from './checkBrower.util';
 import * as typeCheckUtil from './typeCheck.util';
 import * as uuidUtil from './uuid.util';
 import * as stringUtil from './string.util';
+import * as commonUtil from './common.util';
 
 export {
   timeUtil,
@@ -15,5 +16,6 @@ export {
   browserUtil,
   typeCheckUtil,
   uuidUtil,
-  stringUtil
+  stringUtil,
+  commonUtil
 };

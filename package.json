@@ -4,7 +4,7 @@
   "description": "",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha --require babel-core/register \"./tests/**/*.js\" --exit",
+    "test": "mocha --timeout 10000 --require babel-core/register \"./tests/**/*.js\" --exit",
     "build": "tsc"
   },
   "files": [

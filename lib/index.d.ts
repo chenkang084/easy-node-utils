@@ -6,4 +6,5 @@ import * as browserUtil from './checkBrower.util';
 import * as typeCheckUtil from './typeCheck.util';
 import * as uuidUtil from './uuid.util';
 import * as stringUtil from './string.util';
-export { timeUtil, numberUtil, loggerUtil, ajaxDownload, browserUtil, typeCheckUtil, uuidUtil, stringUtil };
+import * as commonUtil from './common.util';
+export { timeUtil, numberUtil, loggerUtil, ajaxDownload, browserUtil, typeCheckUtil, uuidUtil, stringUtil, commonUtil };
