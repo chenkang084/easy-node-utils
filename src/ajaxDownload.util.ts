@@ -2,11 +2,7 @@ import { AxiosResponse } from 'axios';
 import { isIE } from './checkBrower.util';
 import { warning } from './logger.util';
 
-const handleDownload = (
-  contentDisposition: string,
-  data: Blob,
-  filename: string
-) => {
+const handleDownload = (contentDisposition: string, data: Blob, filename: string) => {
   try {
     // filename undefined , use api data's filename
     if (!filename && contentDisposition) {
@@ -37,15 +33,12 @@ export const fetchDownload = (fetch: any, url: string, filename?: string) => {
     }
 
     fetch(url, {
-      method: 'GET'
+      method: 'GET',
+      credentials: 'include'
     }).then((res: Response) => {
       if (res.ok) {
         res.blob().then((data: Blob) => {
-          handleDownload(
-            res.headers.get('content-disposition'),
-            data,
-            filename
-          );
+          handleDownload(res.headers.get('content-disposition'), data, filename);
         });
       } else {
         throw new Error(res.statusText);
