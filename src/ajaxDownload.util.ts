@@ -32,17 +32,24 @@ export const fetchDownload = (fetch: any, url: string, filename?: string) => {
       throw new Error('url can not be null!');
     }
 
-    fetch(url, {
-      method: 'GET',
-      credentials: 'include'
-    }).then((res: Response) => {
-      if (res.ok) {
-        res.blob().then((data: Blob) => {
-          handleDownload(res.headers.get('content-disposition'), data, filename);
+    return new Promise((resolve, reject) => {
+      fetch(url, {
+        method: 'GET',
+        credentials: 'include'
+      })
+        .then((res: Response) => {
+          if (res.ok) {
+            res.blob().then((data: Blob) => {
+              handleDownload(res.headers.get('content-disposition'), data, filename);
+              resolve(data);
+            });
+          } else {
+            throw new Error(res.statusText);
+          }
+        })
+        .catch((error: any) => {
+          reject(error);
         });
-      } else {
-        throw new Error(res.statusText);
-      }
     });
   }
 };
@@ -55,13 +62,20 @@ export const axiosDownload = (axios: any, url: string, filename?: string) => {
       throw new Error('url can not be null!');
     }
 
-    axios({
-      method: 'GET',
-      url,
-      responseType: 'blob',
-      withCredentials: true
-    }).then((res: AxiosResponse) => {
-      handleDownload(res.headers['content-disposition'], res.data, filename);
+    return new Promise((resolve, reject) => {
+      axios({
+        method: 'GET',
+        url,
+        responseType: 'blob',
+        withCredentials: true
+      })
+        .then((res: AxiosResponse) => {
+          handleDownload(res.headers['content-disposition'], res.data, filename);
+          resolve(res.data);
+        })
+        .catch((error: any) => {
+          reject(error);
+        });
     });
   }
 };
