@@ -2,9 +2,7 @@ import moment from 'moment';
 
 export const convertMinutesToDayHourMinute = (minutes: number) => {
   const days = Math.floor(minutes / (60 * 24));
-  const hours = days
-    ? Math.floor((minutes - days * 60 * 24) / 60)
-    : Math.floor(minutes / 60);
+  const hours = days ? Math.floor((minutes - days * 60 * 24) / 60) : Math.floor(minutes / 60);
   const minute = Math.floor(minutes - days * 60 * 24 - hours * 60);
 
   let text = '';
@@ -42,4 +40,8 @@ export const convertDateToYYYYMMDD = (date: string, dateType?: string) => {
 
 export const getCurrentDayAsYYYYMMDD = () => {
   return moment().format('YYYYMMDD');
+};
+
+export const getCurrentDayTimeAsYYYYMMDDHHmmss = () => {
+  return moment().format('YYYYMMDD HH:mm:ss');
 };
